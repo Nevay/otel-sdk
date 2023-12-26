@@ -51,9 +51,20 @@ awaitAll([
 ]);
 ```
 
-### Initialization from [configuration file](https://github.com/open-telemetry/opentelemetry-configuration)
+### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/file-configuration/)
 
-TBD
+```php
+$config = yaml_parse_file('kitchen-sink.yaml');
+$result = Config::load($config);
+```
+
+### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
+
+See also [PHP SDK configuration](https://opentelemetry.io/docs/instrumentation/php/sdk/#configuration).
+
+```php
+$result = Env::load();
+```
 
 
 [Revolt]: https://revolt.run/
