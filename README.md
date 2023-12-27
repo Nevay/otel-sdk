@@ -16,7 +16,7 @@ composer require tbachert/otel-sdk
 
 #### Fiber support
 
-Ensure that your system allows the usage of fibers with `open-telemetry/context`, refer to the
+Ensure that your system allows the usage of fibers with [`open-telemetry/context`], refer to the
 [official OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/php/#ext-ffi) for details.
 
 ## Usage
@@ -26,7 +26,7 @@ Refer to the [official OpenTelemetry documentation](https://opentelemetry.io/doc
 ### Manual SDK initialization
 
 ```php
-$resource = ResourceDetector\defaultResourceDetector()->getResource()
+$resource = Resource::detect()
     ->merge(Resource::create(['foo' => 'bar']));
 
 $tracerProvider = (new TracerProviderBuilder())
@@ -70,4 +70,4 @@ $result = Env::load();
 [Revolt]: https://revolt.run/
 [ReactPHP]: https://reactphp.org/
 [`revolt/event-loop-adapter-react`]: https://github.com/revoltphp/event-loop-adapter-react
-[`tbachert/otel-async-revolt-adapter`]: https://github.com/Nevay/opentelemetry-revolt-adapter
+[`open-telemetry/context`]: https://github.com/opentelemetry-php/context
