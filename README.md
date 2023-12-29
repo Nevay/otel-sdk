@@ -1,10 +1,19 @@
 # OpenTelemetry SDK
 
 Asynchronous OpenTelemetry SDK based on [Revolt].  
+
+This metapackage contains the basic components that are required for creating traces/metrics/logs through the
+official [OpenTelemetry API](https://packagist.org/packages/open-telemetry/api) and sending them to an [`OTLP/HTTP`]
+compatible collector[^1]. Additional exporters as well as other extensions such as resource detectors can be installed
+as separate packages.
+
 Projects using [ReactPHP] libraries can use this SDK together with [`revolt/event-loop-adapter-react`].
 
 While synchronous projects cannot utilize all capabilities of this SDK, they can still profit from concurrent exports
 during SDK `::shutdown()` and `::forceFlush()`.
+
+[^1]: It is highly recommended to install the [`ext-protobuf`] extension if using one of the `OTLP` exporters due to
+its significantly better performance.
 
 ## Installation
 
@@ -70,4 +79,6 @@ $result = Env::load();
 [Revolt]: https://revolt.run/
 [ReactPHP]: https://reactphp.org/
 [`revolt/event-loop-adapter-react`]: https://github.com/revoltphp/event-loop-adapter-react
+[`OTLP/HTTP`]: https://opentelemetry.io/docs/specs/otlp/#otlphttp
+[`ext-protobuf`]: https://opentelemetry.io/docs/instrumentation/php/#ext-protobuf
 [`open-telemetry/context`]: https://github.com/opentelemetry-php/context
