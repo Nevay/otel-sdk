@@ -5,7 +5,8 @@
     "license": "Apache-2.0",
     "type": "metapackage",
     "require": {
-        "tbachert/otel-async-revolt-adapter": "^0.1",
+        "revolt/event-loop": "^1.0.2",
+        "tbachert/otel-async-revolt-adapter": "^0.1.1",
         "tbachert/otel-sdk-common": "^0.1",
         "tbachert/otel-sdk-configuration": "^0.1",
         "tbachert/otel-sdk-logs": "^0.1",
