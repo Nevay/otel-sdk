@@ -4,13 +4,10 @@ Asynchronous OpenTelemetry SDK based on [Revolt].
 
 This metapackage contains the basic components that are required for creating traces/metrics/logs through the
 official [OpenTelemetry API](https://packagist.org/packages/open-telemetry/api) and sending them to an [`OTLP/HTTP`]
-compatible collector[^1]. Additional exporters as well as other extensions such as resource detectors can be installed
+compatible collector[^1]. Additional components (e.g. resource detectors, non-OTLP exporters) can be installed
 as separate packages.
 
 Projects using [ReactPHP] libraries can use this SDK together with [`revolt/event-loop-adapter-react`].
-
-While synchronous projects cannot utilize all capabilities of this SDK, they can still profit from concurrent exports
-during SDK `::shutdown()` and `::forceFlush()`.
 
 [^1]: It is highly recommended to install the [`ext-protobuf`] extension if using one of the `OTLP` exporters due to
 its significantly better performance.
@@ -63,8 +60,7 @@ awaitAll([
 ### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/file-configuration/)
 
 ```php
-$config = yaml_parse_file('kitchen-sink.yaml');
-$result = Config::load($config);
+$result = Config::loadFile(__DIR__ . '/kitchen-sink.yaml');
 ```
 
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
