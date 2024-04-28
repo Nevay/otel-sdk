@@ -18,13 +18,6 @@ its significantly better performance.
 composer require tbachert/otel-sdk
 ```
 
-### Prerequisites
-
-#### Fiber support
-
-Ensure that your system allows the usage of fibers with [`open-telemetry/context`], refer to the
-[official OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/php/#ext-ffi) for details.
-
 ## Usage
 
 Refer to the [official OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/php/) for general usage of the OpenTelemetry API.
