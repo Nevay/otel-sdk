@@ -7,11 +7,11 @@
     "require": {
         "revolt/event-loop": "^1.0.2",
         "tbachert/otel-async-revolt-adapter": "^0.1.1",
-        "tbachert/otel-sdk-common": "^0.1",
+        "tbachert/otel-sdk-common": "self.version",
         "tbachert/otel-sdk-config": "^0.1",
-        "tbachert/otel-sdk-logs": "^0.1",
-        "tbachert/otel-sdk-metrics": "^0.1",
-        "tbachert/otel-sdk-trace": "^0.1",
+        "tbachert/otel-sdk-logs": "self.version",
+        "tbachert/otel-sdk-metrics": "self.version",
+        "tbachert/otel-sdk-trace": "self.version",
         "tbachert/otel-sdk-otlpexporter": "^0.1"
     },
     "extra": {
