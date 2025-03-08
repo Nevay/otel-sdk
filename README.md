@@ -50,10 +50,10 @@ awaitAll([
 ]);
 ```
 
-### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/file-configuration/)
+### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/data-model/#file-based-configuration-model)
 
 ```php
-$result = Config::loadFile(__DIR__ . '/kitchen-sink.yaml');
+$result = Config::loadFile(__DIR__ . '/sdk-config.yaml');
 ```
 
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
