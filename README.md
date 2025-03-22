@@ -58,8 +58,6 @@ $result = Config::loadFile(__DIR__ . '/sdk-config.yaml');
 
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
 
-See also [PHP SDK configuration](https://opentelemetry.io/docs/instrumentation/php/sdk/#configuration).
-
 ```php
 $result = Env::load();
 ```
