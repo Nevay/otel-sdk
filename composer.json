@@ -9,7 +9,10 @@
         "tbachert/otel-async-revolt-adapter": "^0.1.1",
         "tbachert/otel-sdk-config": "^0.1",
         "tbachert/otel-sdk-core": "self.version",
-        "tbachert/otel-sdk-otlpexporter": "^0.1"
+        "tbachert/otel-sdk-jaegerremotesampler": "^0.1",
+        "tbachert/otel-sdk-otlpexporter": "^0.1",
+        "tbachert/otel-sdk-prometheusexporter": "^0.1",
+        "tbachert/otel-sdk-resourcedetectors": "^0.1"
     },
     "extra": {
         "branch-alias": {
