@@ -53,7 +53,7 @@ awaitAll([
 ### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/data-model/#file-based-configuration-model)
 
 ```php
-$result = Config::loadFile(__DIR__ . '/sdk-config.yaml');
+$config = Config::loadFile(__DIR__ . '/sdk-config.yaml');
 ```
 
 ###### Automatic initialization from configuration file
@@ -64,7 +64,7 @@ variable can be set to initialize the global instrumentation instances on startu
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
 
 ```php
-$result = Env::load();
+$config = Config::loadFromEnv();
 ```
 
 ###### Automatic initialization from environment variables
