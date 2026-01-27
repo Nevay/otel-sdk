@@ -4,8 +4,7 @@ Asynchronous OpenTelemetry SDK based on [Revolt].
 
 This metapackage contains the basic components that are required for creating traces/metrics/logs through the
 official [OpenTelemetry API](https://packagist.org/packages/open-telemetry/api) and sending them to an [`OTLP/HTTP`]
-compatible collector[^1]. Additional components (e.g. resource detectors, non-OTLP exporters) can be installed
-as separate packages.
+compatible collector[^1]. Additional components (e.g. non-OTLP exporters) can be installed as separate packages.
 
 Projects using [ReactPHP] libraries can use this SDK together with [`revolt/event-loop-adapter-react`].
 
@@ -25,28 +24,28 @@ Refer to the [official OpenTelemetry documentation](https://opentelemetry.io/doc
 ### Manual SDK initialization
 
 ```php
-$resource = Resource::detect()
-    ->merge(Resource::create(['foo' => 'bar']));
+$resource = Resource::create(['foo' => 'bar']);
 
 $tracerProvider = (new TracerProviderBuilder())
-    ->addResource($resource)
+    ->setResource($resource)
     ->addSpanProcessor(new BatchSpanProcessor(new OtlpStreamSpanExporter(getStdout())))
     ->build($logger);
 $meterProvider = (new MeterProviderBuilder())
-    ->addResource($resource)
+    ->setResource($resource)
     ->addMetricReader(new PeriodicExportingMetricReader(new OtlpStreamMetricExporter(getStdout())))
     ->build($logger);
 $loggerProvider = (new LoggerProviderBuilder())
-    ->addResource($resource)
+    ->setResource($resource)
     ->addLogRecordProcessor(new BatchLogRecordProcessor(new OtlpStreamLogRecordExporter(getStdout())))
     ->build($logger);
 ```
 
 ```php
-awaitAll([
-    async($tracerProvider->shutdown(...)),
-    async($meterProvider->shutdown(...)),
-    async($loggerProvider->shutdown(...)),
+$cancellation = new TimeoutCancellation(10);
+await([
+    async($tracerProvider->shutdown(...), $cancellation),
+    async($meterProvider->shutdown(...), $cancellation),
+    async($loggerProvider->shutdown(...), $cancellation),
 ]);
 ```
 
