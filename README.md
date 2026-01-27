@@ -21,6 +21,28 @@ composer require tbachert/otel-sdk
 
 Refer to the [official OpenTelemetry documentation](https://opentelemetry.io/docs/instrumentation/php/) for general usage of the OpenTelemetry API.
 
+### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/data-model/#file-based-configuration-model)
+
+```php
+$config = Config::loadFile(__DIR__ . '/sdk-config.yaml');
+```
+
+###### Automatic initialization from configuration file
+
+The [`OTEL_EXPERIMENTAL_CONFIG_FILE`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment
+variable can be set to initialize the `Global` instances on startup.
+
+### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
+
+```php
+$config = Config::loadFromEnv();
+```
+
+###### Automatic initialization from environment variables
+
+The [`OTEL_PHP_AUTOLOAD_ENABLED`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment variable
+can be set to `true` to initialize the `Global` instances on startup.
+
 ### Manual SDK initialization
 
 ```php
@@ -48,28 +70,6 @@ await([
     async($loggerProvider->shutdown(...), $cancellation),
 ]);
 ```
-
-### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/data-model/#file-based-configuration-model)
-
-```php
-$config = Config::loadFile(__DIR__ . '/sdk-config.yaml');
-```
-
-###### Automatic initialization from configuration file
-
-The [`OTEL_EXPERIMENTAL_CONFIG_FILE`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment
-variable can be set to initialize the global instrumentation instances on startup.
-
-### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
-
-```php
-$config = Config::loadFromEnv();
-```
-
-###### Automatic initialization from environment variables
-
-The [`OTEL_PHP_AUTOLOAD_ENABLED`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment variable
-can be set to `true` to initialize the global instrumentation instances on startup.
 
 
 [Revolt]: https://revolt.run/
