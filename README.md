@@ -24,13 +24,13 @@ Refer to the [official OpenTelemetry documentation](https://opentelemetry.io/doc
 ### Initialization from [configuration file](https://opentelemetry.io/docs/specs/otel/configuration/data-model/#file-based-configuration-model)
 
 ```php
-$config = Config::loadFile(__DIR__ . '/sdk-config.yaml');
+$config = Config::loadFile(__DIR__ . '/otel-sdk-config.yaml');
 ```
 
 ###### Automatic initialization from configuration file
 
-The [`OTEL_EXPERIMENTAL_CONFIG_FILE`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment
-variable can be set to initialize the `Global` instances on startup.
+The [`OTEL_CONFIG_FILE`](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#declarative-configuration)
+environment variable can be set to initialize the `Globals` instances on startup.
 
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
 
@@ -41,7 +41,7 @@ $config = Config::loadFromEnv();
 ###### Automatic initialization from environment variables
 
 The [`OTEL_PHP_AUTOLOAD_ENABLED`](https://opentelemetry.io/docs/languages/php/sdk/#configuration) environment variable
-can be set to `true` to initialize the `Global` instances on startup.
+can be set to `true` to initialize the `Globals` instances on startup.
 
 ### Manual SDK initialization
 
