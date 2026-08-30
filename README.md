@@ -32,6 +32,18 @@ $config = Config::loadFile(__DIR__ . '/otel-sdk-config.yaml');
 The [`OTEL_CONFIG_FILE`](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#declarative-configuration)
 environment variable can be set to initialize the `Globals` instances on startup.
 
+###### Dynamically reloading configuration file in long-running processes
+
+The `distribution.tbachert/otel-sdk.watcher/development` plugin can be specified to watch loaded
+config files for changes.
+
+```yaml
+distribution:
+  tbachert/otel-sdk:
+    watcher/development:
+      inotify:
+```
+
 ### Initialization from [environment variables](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/)
 
 ```php
